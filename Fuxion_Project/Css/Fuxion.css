@@ -1,0 +1,759 @@
+/* Existing styles */
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Geologica', sans-serif;
+    background-color: #ffffff !important;
+    color: #333;
+    display: flex;
+}
+.nav-padding{
+    padding:20px;
+}
+.navs {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 250  px;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.logo-container {
+    width: 250px; /* Same width as sidebar */
+    margin-left: 15px; /* Optional: Adjust as needed */
+    margin: 0;
+    border-bottom: solid 2px #7A3808;
+}
+
+.logo {
+    width: 60%; /* Make the logo take full width of the container */
+    height: auto; /* Maintain aspect ratio */
+   /* Border at the bottom */
+    margin-left: 30px;
+    margin-bottom: 20px;
+    max-width: 300px; /* Limit the maximum width */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.navs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navs li {
+    margin-bottom: 15px;
+}
+
+.navs a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navs a:hover {
+    background-color: #ffffff;
+    border: 2px solid #000;
+    color: #7A3808;
+}
+
+.navs a.active {
+    background-color: #ffffff;
+    border: 2px solid #000;
+    color: #7A3808;
+}
+
+.content {
+    margin-left: 250px; /* Increase margin to move content right */
+    padding: 70px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-height: 100vh;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8  px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+img {
+    max-width: 45px; /* Ensure images are not too large */
+    height: auto;
+}
+.custom-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal-product-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.modal-product-content h2 {
+    text-align: center;
+    color: #333;
+}
+
+.modal-product-content label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.modal-product-content input[type="text"],
+.modal-product-content input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: border 0.3s ease;
+}
+
+.modal-product-content input[type="text"]:focus,
+.modal-product-content input[type="file"]:focus {
+    border-color: #007bff;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.modal-content {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    background-color: white; /* White background for clarity */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #D2B48C; /* Light brown border for subtlety */
+    width: 300px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    text-align: center; /* Center text within modal content */
+}
+
+h2 {
+    color: #5C3A29; /* Darker brown for text */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.confirm-logout, .cancel-logout {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Slightly larger font */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.confirm-logout {
+    background-color: red; /* Red for logout button */
+    color: white;
+}
+
+.cancel-logout {
+    background-color: green; /* Green for cancel button */
+    color: white;
+}
+
+.confirm-logout:hover {
+    background-color: darkred; /* Darker red on hover */
+}
+
+.cancel-logout:hover {
+    background-color: darkgreen; /* Darker green on hover */
+}
+
+
+.content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.content h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Set to 2 columns */
+    gap: 30px; /* Increased space between metric containers */
+}
+
+.metric {
+    width: 90%; /* Optional: Ensure full width for each metric */
+    background-color: #ffffff;
+    padding: 25px; /* Increased padding */
+    border-radius: 8px; /* Slightly larger border radius */
+    text-align: center;
+    min-height: 100px; /* Set a minimum height for consistency */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+}
+
+.metric h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.metric p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0 0;
+}
+
+.chart-container1 {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container2 {
+    max-width: 1200px; /* Increased maximum width */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Style for the section category*/
+.unique-container {
+    width: 90%; /* Adjusted to be 90% of the parent width */
+    max-width: 1200px; /* Maintain a maximum width */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Add some padding */
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 8px; /* Optional rounded corners */
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+    height: auto    ;
+}
+.unique-container {
+    position: relative; /* Allow absolute positioning */
+}
+
+.button-container {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    margin-bottom: 15px; /* Space below the button */
+}
+
+#addCategoryBtn {
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #CFA75A; /* Button color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-top: 30px;
+}
+
+#addCategoryBtn:hover {
+    background-color: #7A3808; /* Darker blue on hover */
+}
+
+h1 {
+    font-size: 24px; /* Heading size */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+p {
+    font-size: 16px; /* Paragraph size */
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+#categoryList {
+    display: flex; /* Use flexbox to arrange cards */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center cards in the container */
+    padding: 20px; /* Space around the cards */
+}
+
+.category-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px; /* Width of the card */
+    height: 28  0px; /* Fixed height of the card */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    margin: 10px; /* Space between cards */
+    overflow: hidden; /* Hide overflow content */
+    position: relative; /* Make the card a positioning context */
+}
+.icon-container {
+    position: absolute; /* Position the icon absolutely */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    cursor: pointer; /* Change cursor to pointer */
+    z-index: 10; /* Make sure it's above other elements */
+}
+
+.cancel-icon {
+    margin-top:-100px;
+    margin-left:30px;
+    background-color:transparent    ;
+    color: #ff0000; /* Red color for the icon */
+    font-size: 20px; /* Adjust size as needed */
+}
+.cancel-icon:hover{
+    scale:1.1;
+    background-color:transparent;
+}
+
+.category-image {
+    width: 100%; /* Make image full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    max-height: 150px; /* Set a maximum height for images */
+}
+
+h3 {
+    margin: 10px 0; /* Space above and below the title */
+    font-size: 20px; /* Title font size */
+    color: #333; /* Title color */
+    text-align: center; /* Center the title */
+    margin-bottom: 50px;
+}
+
+.button-container {
+    display: flex; /* Use flexbox to align buttons in a row */
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: auto; /* Push buttons to the bottom of the card */
+    gap: 10px; /* Space between buttons */
+}
+
+.action-button1 {
+    padding: 5px 10px; /* Padding for buttons */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #CFA75A; /* Button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    font-size: 14px; /* Font size for buttons */
+    margin-bottom: 10px;
+}
+
+.action-button1:hover {
+    background-color: #B76931; /* Darker blue on hover */
+}
+
+/* Style for displaying the product of each category*/
+.display-product-container {
+    padding: 20px; /* Add padding to the container */
+    background-color: #ffffff; /* Light beige background */
+    border-radius: 15px;
+    margin-left: 20px;
+    
+}
+
+.product-list {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally */
+    gap: 15px; /* Space between product items */
+}
+
+.product-item {
+    background-color: white; /* Light brownish background for product items */
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px;
+    width: 250px; /* Set a fixed width for product items */
+    max-width: 100%; /* Ensure it doesn't exceed the container's width */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+}
+
+.product-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Rounded corners for images */
+}
+
+.quantity-controls {
+    display: flex; /* Use flexbox for quantity controls */
+    align-items: center; /* Center buttons and input vertically */
+    margin-top: 10px; /* Space above quantity controls */
+}
+
+.quantity-button {
+    width: 30px; /* Set a fixed width for buttons */
+    height: 30px; /* Set height for buttons */
+    border: none; /* Remove border */
+    background-color: #8b5a2b; /* Brown background for buttons */
+    color: white; /* White text */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.quantity-button:hover {
+    background-color: #7b4e2b; /* Darker brown on hover */
+}
+
+.quantity-input {
+    width: 40px; /* Set fixed width for input */
+    text-align: center; /* Center text in input */
+    margin: 0 5px; /* Space between buttons and input */
+    border: 1px solid #d6b29a; /* Light brown border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.product-price {
+    font-size: 1.2em; /* Slightly larger font size for price */
+    margin: 10px 0; /* Space above and below the price */
+    color: #8b4513; /* Dark brown color for price text */
+}
+  /* Style for the add category modal */
+  .custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background for focus */
+}
+
+.modal-category-content {
+    background-color: #ffffff; /* Clean white background */
+    margin: 10% auto; /* Centered with less margin */
+    padding: 30px; /* Increased padding for a spacious feel */
+    border: none; /* No border for a modern look */
+    border-radius: 8px; /* Slightly larger rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    max-width: 500px; /* Max width for better responsiveness */
+}
+
+.close {
+    color: #666; /* Medium grey */
+    float: right; /* Position close button */
+    font-size: 24px; /* Slightly smaller font size */
+    font-weight: bold; /* Bold */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.close:hover,
+.close:focus {
+    color: #000000; /* Bootstrap danger color on hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor */
+}
+
+h2 {
+    margin: 0; /* Remove default margin */
+    padding-bottom: 20px; /* Space below heading */
+    font-size: 1.5em; /* Slightly larger font size */
+    color: #333; /* Darker text color */
+    border-bottom: 2px solid #f0f0f0; /* Underline for emphasis */
+}
+
+label {
+    display: block; /* Block display for labels */
+    margin-top: 15px; /* Space above labels */
+    font-weight: bold; /* Bold for emphasis */
+    color: #555; /* Darker grey for readability */
+    margin-left: 20px;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 90%; /* Full width inputs */
+    padding: 12px; /* Increased padding */
+    margin-top: 5px; /* Space above inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth border transition */
+    margin-left: 20px;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border-color: #A0522D; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background-color: #28a745; /* Bootstrap success color */
+    color: white; /* White text */
+    padding: 12px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    margin-top: 20px; /* Space above button */
+    font-size: 1em; /* Consistent font size */
+    transition: background-color 0.3s; /* Smooth background transition */
+    margin-left: 20px;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Style for the Order History*/
+.order-container {
+    max-width: 1200px; /* Maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.header-container {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Space between heading and search bar */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+h1 {
+    font-size: 24px; /* Font size for the heading */
+    color: #333; /* Dark text color */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+p {
+    font-size: 16px; /* Font size for the paragraph */
+    color: #666; /* Gray text color */
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+table {
+    width: 100%; /* Full width table */
+    border-collapse: collapse; /* Collapse table borders */
+    margin-top: 20px; /* Space above the table */
+}
+
+th, td {
+    padding: 12px; /* Padding inside table cells */
+    text-align: left; /* Left-align text */
+    border-bottom: 1px solid #ddd; /* Bottom border for rows */
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for header */
+    color: #333; /* Dark text color for header */
+    font-weight: bold; /* Bold text for header */
+}
+
+tr:hover {
+    background-color: #f9f9f9; /* Highlight row on hover */
+}
+
+.action-button {
+    background-color:  #7b4e2b; /* Primary button color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    margin-right: 5px; /* Space between buttons */
+}
+
+.action-button:hover {
+    background-color: #A0522D; /* Darker shade on hover */
+}
+
+.action-button:disabled {
+    background-color: #ccc; /* Gray color for disabled button */
+    cursor: not-allowed; /* Not-allowed cursor for disabled button */
+}
+
+.search-bar {
+    padding: 8px 12px; /* Padding for the input */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    width: 180px; /* Width of the search bar */
+    transition: border-color 0.3s; /* Smooth transition on focus */
+}
+
+.search-bar:focus {
+    outline: none; /* Remove default outline */
+    border-color: #A0522D; /* Change border color on focus */
+}
+
+#sales {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h1 {
+    font-size: 2em;
+    color: #333; /* Dark text for readability */
+    margin-bottom: 15px; /* Space below heading */
+}
+
+p {
+    font-size: 1em;
+    color: #555; /* Slightly lighter text color */
+    margin-bottom: 20px; /* Space below paragraph */
+}
+
+.sales-filter {
+    margin-bottom: 30px; /* Space below filter section */
+}
+
+label {
+    margin-right: 10px; /* Space between label and select */
+    font-weight: bold; /* Bold label for emphasis */
+}
+
+select {
+    padding: 5px;
+    font-size: 1em; /* Consistent font size */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+#filterButton {
+    padding: 6px 12px; /* Padding for button */
+    font-size: 1em; /* Consistent font size */
+    background-color: #d07f2d; /* Primary button color */
+    color: white; /* White text for contrast */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+#filterButton:hover {
+    background-color: #a34f0a; /* Darker shade on hover */
+}
+
+.sales-chart {
+    margin-bottom: 30px; /* Space below chart */
+}
+
+.sales-kpis, .sales-summary {
+    background-color: #fff; /* White background for contrast */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Space between sections */
+}
+
+h3 {
+    font-size: 1.5em; /* Slightly smaller heading */
+    color: #333; /* Dark text */
+    margin-bottom: 10px; /* Space below subheading */
+}
+
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+}
+
+li {
+    margin-bottom: 5px; /* Space between list items */
+    font-size: 1em; /* Consistent font size */
+}
+
+span {
+    font-weight: bold; /* Emphasize data values */
+    color: #007bff; /* Primary color for data values */
+}
+
+
+
+
+
+
+
+
+
+
